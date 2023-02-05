@@ -1,0 +1,92 @@
+﻿
+@{
+    ViewBag.Title = "Quản lý nhân viên";
+}
+
+<div class="box box-primary">
+    <div class="box-body">
+
+        <form>
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="Search">
+                <div class="input-group-btn">
+                    <button class="btn btn-success" type="submit">
+                        <i class="glyphicon glyphicon-search"></i>
+                    </button>
+                </div>
+                <div class="input-group-btn">
+                    <a href="~/Employee/Create" class="btn btn-primary" style="margin-left: 5px;">
+                        <i class="glyphicon glyphicon-plus"></i>
+                        bổ sung
+                    </a>
+                </div>
+            </div>
+
+        </form>
+
+
+        <p>Có <b>1,054</b> nhân viên trong tổng số <b>10</b> trang</p>
+
+        <div class="row">
+            @for (int i = 1; i <= 5; i++)
+            {
+                <div class="col-sm-4">
+                    <div class="box box-primary">
+                        <div class="box-header with-border">
+                            <h3 class="box-title">Truơng Quốc</h3>
+                            <div class="box-tools pull-right">
+                                <a class="btn btn-box-tool" href="~/Employee/Edit/">
+                                    <i class="fa fa-edit text-primary"></i>
+                                </a>
+                                <a class="btn btn-box-tool" href="~/Employee/Delete/">
+                                    <i class="fa fa-trash text-danger"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="box-body">
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <img class="profile-user-img img-responsive img-bordered" src="https://hotelcareers.vn/wp-content/uploads/2021/06/nhan-vien-kinh-doanh-la-gi.jpeg">
+                                </div>
+                                <div class="col-sm-8">
+                                    <ul class="list-group list-group-unbordered">
+                                        <li class="list-group-item">
+                                            <label>Họ và tên:</label>Truơng Quốc
+                                        </li>
+                                        <li class="list-group-item">
+                                            <label>Ngày sinh:</label> 22/12/2001
+                                        </li>
+                                        <li class="list-group-item">
+                                            <label>Email:</label> quoct324@gmail.com
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12 text-justify" style="height:120px; overflow-y:auto">
+                                    Education includes a BA in psychology from Colorado State University. She also completed (The Art of the Cold Call). Nancy is a member of 'Toastmasters International'.
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /.box-body -->
+                    </div>
+                </div>
+            }
+        </div>
+        <div class="text-center">
+            <ul class="pagination">
+                <li><a href="#">1</a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">4</a></li>
+                <li><a href="#">5</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+

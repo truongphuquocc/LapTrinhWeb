@@ -1,0 +1,112 @@
+D:\New Volume (E)\2022-2023.HK2\LTWeb_N2\19T1021201\19T1021201.Web\bin\19T1021201.Web.dll.config
+D:\New Volume (E)\2022-2023.HK2\LTWeb_N2\19T1021201\19T1021201.Web\bin\19T1021201.Web.dll
+D:\New Volume (E)\2022-2023.HK2\LTWeb_N2\19T1021201\19T1021201.Web\bin\19T1021201.Web.pdb
+D:\New Volume (E)\2022-2023.HK2\LTWeb_N2\19T1021201\19T1021201.Web\bin\roslyn\csc.exe
+D:\New Volume (E)\2022-2023.HK2\LTWeb_N2\19T1021201\19T1021201.Web\bin\roslyn\csc.exe.config
+D:\New Volume (E)\2022-2023.HK2\LTWeb_N2\19T1021201\19T1021201.Web\bin\roslyn\csc.rsp
+D:\New Volume (E)\2022-2023.HK2\LTWeb_N2\19T1021201\19T1021201.Web\bin\roslyn\csi.exe
+D:\New Volume (E)\2022-2023.HK2\LTWeb_N2\19T1021201\19T1021201.Web\bin\roslyn\csi.rsp
+D:\New Volume (E)\2022-2023.HK2\LTWeb_N2\19T1021201\19T1021201.Web\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\New Volume (E)\2022-2023.HK2\LTWeb_N2\19T1021201\19T1021201.Web\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\New Volume (E)\2022-2023.HK2\LTWeb_N2\19T1021201\19T1021201.Web\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+D:\New Volume (E)\2022-2023.HK2\LTWeb_N2\19T1021201\19T1021201.Web\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\New Volume (E)\2022-2023.HK2\LTWeb_N2\19T1021201\19T1021201.Web\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+D:\New Volume (E)\2022-2023.HK2\LTWeb_N2\19T1021201\19T1021201.Web\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\New Volume (E)\2022-2023.HK2\LTWeb_N2\19T1021201\19T1021201.Web\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\New Volume (E)\2022-2023.HK2\LTWeb_N2\19T1021201\19T1021201.Web\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+D:\New Volume (E)\2022-2023.HK2\LTWeb_N2\19T1021201\19T1021201.Web\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+D:\New Volume (E)\2022-2023.HK2\LTWeb_N2\19T1021201\19T1021201.Web\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\New Volume (E)\2022-2023.HK2\LTWeb_N2\19T1021201\19T1021201.Web\bin\roslyn\System.AppContext.dll
+D:\New Volume (E)\2022-2023.HK2\LTWeb_N2\19T1021201\19T1021201.Web\bin\roslyn\System.Collections.Immutable.dll
+D:\New Volume (E)\2022-2023.HK2\LTWeb_N2\19T1021201\19T1021201.Web\bin\roslyn\System.Diagnostics.StackTrace.dll
+D:\New Volume (E)\2022-2023.HK2\LTWeb_N2\19T1021201\19T1021201.Web\bin\roslyn\System.IO.FileSystem.dll
+D:\New Volume (E)\2022-2023.HK2\LTWeb_N2\19T1021201\19T1021201.Web\bin\roslyn\System.IO.FileSystem.Primitives.dll
+D:\New Volume (E)\2022-2023.HK2\LTWeb_N2\19T1021201\19T1021201.Web\bin\roslyn\System.Reflection.Metadata.dll
+D:\New Volume (E)\2022-2023.HK2\LTWeb_N2\19T1021201\19T1021201.Web\bin\roslyn\vbc.exe
+D:\New Volume (E)\2022-2023.HK2\LTWeb_N2\19T1021201\19T1021201.Web\bin\roslyn\vbc.exe.config
+D:\New Volume (E)\2022-2023.HK2\LTWeb_N2\19T1021201\19T1021201.Web\bin\roslyn\vbc.rsp
+D:\New Volume (E)\2022-2023.HK2\LTWeb_N2\19T1021201\19T1021201.Web\bin\roslyn\VBCSCompiler.exe
+D:\New Volume (E)\2022-2023.HK2\LTWeb_N2\19T1021201\19T1021201.Web\bin\roslyn\VBCSCompiler.exe.config
+D:\New Volume (E)\2022-2023.HK2\LTWeb_N2\19T1021201\19T1021201.Web\bin\Antlr3.Runtime.dll
+D:\New Volume (E)\2022-2023.HK2\LTWeb_N2\19T1021201\19T1021201.Web\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\New Volume (E)\2022-2023.HK2\LTWeb_N2\19T1021201\19T1021201.Web\bin\Microsoft.Web.Infrastructure.dll
+D:\New Volume (E)\2022-2023.HK2\LTWeb_N2\19T1021201\19T1021201.Web\bin\Newtonsoft.Json.dll
+D:\New Volume (E)\2022-2023.HK2\LTWeb_N2\19T1021201\19T1021201.Web\bin\System.Web.Helpers.dll
+D:\New Volume (E)\2022-2023.HK2\LTWeb_N2\19T1021201\19T1021201.Web\bin\System.Web.Mvc.dll
+D:\New Volume (E)\2022-2023.HK2\LTWeb_N2\19T1021201\19T1021201.Web\bin\System.Web.Optimization.dll
+D:\New Volume (E)\2022-2023.HK2\LTWeb_N2\19T1021201\19T1021201.Web\bin\System.Web.Razor.dll
+D:\New Volume (E)\2022-2023.HK2\LTWeb_N2\19T1021201\19T1021201.Web\bin\System.Web.WebPages.Deployment.dll
+D:\New Volume (E)\2022-2023.HK2\LTWeb_N2\19T1021201\19T1021201.Web\bin\System.Web.WebPages.dll
+D:\New Volume (E)\2022-2023.HK2\LTWeb_N2\19T1021201\19T1021201.Web\bin\System.Web.WebPages.Razor.dll
+D:\New Volume (E)\2022-2023.HK2\LTWeb_N2\19T1021201\19T1021201.Web\bin\WebGrease.dll
+D:\New Volume (E)\2022-2023.HK2\LTWeb_N2\19T1021201\19T1021201.Web\bin\System.Web.Helpers.xml
+D:\New Volume (E)\2022-2023.HK2\LTWeb_N2\19T1021201\19T1021201.Web\bin\System.Web.Mvc.xml
+D:\New Volume (E)\2022-2023.HK2\LTWeb_N2\19T1021201\19T1021201.Web\bin\System.Web.Optimization.xml
+D:\New Volume (E)\2022-2023.HK2\LTWeb_N2\19T1021201\19T1021201.Web\bin\System.Web.Razor.xml
+D:\New Volume (E)\2022-2023.HK2\LTWeb_N2\19T1021201\19T1021201.Web\bin\System.Web.WebPages.xml
+D:\New Volume (E)\2022-2023.HK2\LTWeb_N2\19T1021201\19T1021201.Web\bin\System.Web.WebPages.Deployment.xml
+D:\New Volume (E)\2022-2023.HK2\LTWeb_N2\19T1021201\19T1021201.Web\bin\System.Web.WebPages.Razor.xml
+D:\New Volume (E)\2022-2023.HK2\LTWeb_N2\19T1021201\19T1021201.Web\bin\Newtonsoft.Json.xml
+D:\New Volume (E)\2022-2023.HK2\LTWeb_N2\19T1021201\19T1021201.Web\bin\Antlr3.Runtime.pdb
+D:\New Volume (E)\2022-2023.HK2\LTWeb_N2\19T1021201\19T1021201.Web\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\New Volume (E)\2022-2023.HK2\LTWeb_N2\19T1021201\19T1021201.Web\obj\Debug\19T1021201.Web.csproj.AssemblyReference.cache
+D:\New Volume (E)\2022-2023.HK2\LTWeb_N2\19T1021201\19T1021201.Web\obj\Debug\19T1021201.Web.csproj.CoreCompileInputs.cache
+D:\New Volume (E)\2022-2023.HK2\LTWeb_N2\19T1021201\19T1021201.Web\obj\Debug\19T1021201.Web.csproj.CopyComplete
+D:\New Volume (E)\2022-2023.HK2\LTWeb_N2\19T1021201\19T1021201.Web\obj\Debug\19T1021201.Web.dll
+D:\New Volume (E)\2022-2023.HK2\LTWeb_N2\19T1021201\19T1021201.Web\obj\Debug\19T1021201.Web.pdb
+D:\New Volume (E)\2022-2023.HK2\Lap Trinh Web\19T1021201\19T1021201.Web\bin\19T1021201.Web.dll.config
+D:\New Volume (E)\2022-2023.HK2\Lap Trinh Web\19T1021201\19T1021201.Web\bin\19T1021201.Web.dll
+D:\New Volume (E)\2022-2023.HK2\Lap Trinh Web\19T1021201\19T1021201.Web\bin\19T1021201.Web.pdb
+D:\New Volume (E)\2022-2023.HK2\Lap Trinh Web\19T1021201\19T1021201.Web\bin\roslyn\csc.exe
+D:\New Volume (E)\2022-2023.HK2\Lap Trinh Web\19T1021201\19T1021201.Web\bin\roslyn\csc.exe.config
+D:\New Volume (E)\2022-2023.HK2\Lap Trinh Web\19T1021201\19T1021201.Web\bin\roslyn\csc.rsp
+D:\New Volume (E)\2022-2023.HK2\Lap Trinh Web\19T1021201\19T1021201.Web\bin\roslyn\csi.exe
+D:\New Volume (E)\2022-2023.HK2\Lap Trinh Web\19T1021201\19T1021201.Web\bin\roslyn\csi.rsp
+D:\New Volume (E)\2022-2023.HK2\Lap Trinh Web\19T1021201\19T1021201.Web\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\New Volume (E)\2022-2023.HK2\Lap Trinh Web\19T1021201\19T1021201.Web\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\New Volume (E)\2022-2023.HK2\Lap Trinh Web\19T1021201\19T1021201.Web\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+D:\New Volume (E)\2022-2023.HK2\Lap Trinh Web\19T1021201\19T1021201.Web\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\New Volume (E)\2022-2023.HK2\Lap Trinh Web\19T1021201\19T1021201.Web\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+D:\New Volume (E)\2022-2023.HK2\Lap Trinh Web\19T1021201\19T1021201.Web\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\New Volume (E)\2022-2023.HK2\Lap Trinh Web\19T1021201\19T1021201.Web\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\New Volume (E)\2022-2023.HK2\Lap Trinh Web\19T1021201\19T1021201.Web\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+D:\New Volume (E)\2022-2023.HK2\Lap Trinh Web\19T1021201\19T1021201.Web\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+D:\New Volume (E)\2022-2023.HK2\Lap Trinh Web\19T1021201\19T1021201.Web\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\New Volume (E)\2022-2023.HK2\Lap Trinh Web\19T1021201\19T1021201.Web\bin\roslyn\System.AppContext.dll
+D:\New Volume (E)\2022-2023.HK2\Lap Trinh Web\19T1021201\19T1021201.Web\bin\roslyn\System.Collections.Immutable.dll
+D:\New Volume (E)\2022-2023.HK2\Lap Trinh Web\19T1021201\19T1021201.Web\bin\roslyn\System.Diagnostics.StackTrace.dll
+D:\New Volume (E)\2022-2023.HK2\Lap Trinh Web\19T1021201\19T1021201.Web\bin\roslyn\System.IO.FileSystem.dll
+D:\New Volume (E)\2022-2023.HK2\Lap Trinh Web\19T1021201\19T1021201.Web\bin\roslyn\System.IO.FileSystem.Primitives.dll
+D:\New Volume (E)\2022-2023.HK2\Lap Trinh Web\19T1021201\19T1021201.Web\bin\roslyn\System.Reflection.Metadata.dll
+D:\New Volume (E)\2022-2023.HK2\Lap Trinh Web\19T1021201\19T1021201.Web\bin\roslyn\vbc.exe
+D:\New Volume (E)\2022-2023.HK2\Lap Trinh Web\19T1021201\19T1021201.Web\bin\roslyn\vbc.exe.config
+D:\New Volume (E)\2022-2023.HK2\Lap Trinh Web\19T1021201\19T1021201.Web\bin\roslyn\vbc.rsp
+D:\New Volume (E)\2022-2023.HK2\Lap Trinh Web\19T1021201\19T1021201.Web\bin\roslyn\VBCSCompiler.exe
+D:\New Volume (E)\2022-2023.HK2\Lap Trinh Web\19T1021201\19T1021201.Web\bin\roslyn\VBCSCompiler.exe.config
+D:\New Volume (E)\2022-2023.HK2\Lap Trinh Web\19T1021201\19T1021201.Web\bin\Antlr3.Runtime.dll
+D:\New Volume (E)\2022-2023.HK2\Lap Trinh Web\19T1021201\19T1021201.Web\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\New Volume (E)\2022-2023.HK2\Lap Trinh Web\19T1021201\19T1021201.Web\bin\Microsoft.Web.Infrastructure.dll
+D:\New Volume (E)\2022-2023.HK2\Lap Trinh Web\19T1021201\19T1021201.Web\bin\Newtonsoft.Json.dll
+D:\New Volume (E)\2022-2023.HK2\Lap Trinh Web\19T1021201\19T1021201.Web\bin\System.Web.Helpers.dll
+D:\New Volume (E)\2022-2023.HK2\Lap Trinh Web\19T1021201\19T1021201.Web\bin\System.Web.Mvc.dll
+D:\New Volume (E)\2022-2023.HK2\Lap Trinh Web\19T1021201\19T1021201.Web\bin\System.Web.Optimization.dll
+D:\New Volume (E)\2022-2023.HK2\Lap Trinh Web\19T1021201\19T1021201.Web\bin\System.Web.Razor.dll
+D:\New Volume (E)\2022-2023.HK2\Lap Trinh Web\19T1021201\19T1021201.Web\bin\System.Web.WebPages.Deployment.dll
+D:\New Volume (E)\2022-2023.HK2\Lap Trinh Web\19T1021201\19T1021201.Web\bin\System.Web.WebPages.dll
+D:\New Volume (E)\2022-2023.HK2\Lap Trinh Web\19T1021201\19T1021201.Web\bin\System.Web.WebPages.Razor.dll
+D:\New Volume (E)\2022-2023.HK2\Lap Trinh Web\19T1021201\19T1021201.Web\bin\WebGrease.dll
+D:\New Volume (E)\2022-2023.HK2\Lap Trinh Web\19T1021201\19T1021201.Web\bin\System.Web.Helpers.xml
+D:\New Volume (E)\2022-2023.HK2\Lap Trinh Web\19T1021201\19T1021201.Web\bin\System.Web.Mvc.xml
+D:\New Volume (E)\2022-2023.HK2\Lap Trinh Web\19T1021201\19T1021201.Web\bin\System.Web.Optimization.xml
+D:\New Volume (E)\2022-2023.HK2\Lap Trinh Web\19T1021201\19T1021201.Web\bin\System.Web.Razor.xml
+D:\New Volume (E)\2022-2023.HK2\Lap Trinh Web\19T1021201\19T1021201.Web\bin\System.Web.WebPages.xml
+D:\New Volume (E)\2022-2023.HK2\Lap Trinh Web\19T1021201\19T1021201.Web\bin\System.Web.WebPages.Deployment.xml
+D:\New Volume (E)\2022-2023.HK2\Lap Trinh Web\19T1021201\19T1021201.Web\bin\System.Web.WebPages.Razor.xml
+D:\New Volume (E)\2022-2023.HK2\Lap Trinh Web\19T1021201\19T1021201.Web\bin\Newtonsoft.Json.xml
+D:\New Volume (E)\2022-2023.HK2\Lap Trinh Web\19T1021201\19T1021201.Web\bin\Antlr3.Runtime.pdb
+D:\New Volume (E)\2022-2023.HK2\Lap Trinh Web\19T1021201\19T1021201.Web\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\New Volume (E)\2022-2023.HK2\Lap Trinh Web\19T1021201\19T1021201.Web\obj\Debug\19T1021201.Web.csproj.AssemblyReference.cache
+D:\New Volume (E)\2022-2023.HK2\Lap Trinh Web\19T1021201\19T1021201.Web\obj\Debug\19T1021201.Web.csproj.CoreCompileInputs.cache
+D:\New Volume (E)\2022-2023.HK2\Lap Trinh Web\19T1021201\19T1021201.Web\obj\Debug\19T1021201.Web.csproj.CopyComplete
+D:\New Volume (E)\2022-2023.HK2\Lap Trinh Web\19T1021201\19T1021201.Web\obj\Debug\19T1021201.Web.dll
+D:\New Volume (E)\2022-2023.HK2\Lap Trinh Web\19T1021201\19T1021201.Web\obj\Debug\19T1021201.Web.pdb
