@@ -38,9 +38,11 @@
                 <label class="control-label col-sm-2">Quốc gia:</label>
                 <div class="col-sm-10">
                     <select class="form-control" id="Country" name="Country">
-                        <option>--Chọn quốc gia--</option>
-                        <option>Việt Nam</option>
-                        <option>Nga</option>
+                        <option value="">--Chọn quốc gia--</option>
+                        @foreach (var item in _19T1021201.BusinessLayers.CommonDataService.ListOfCountries())
+                        {
+                            <option value="@item.CountryName">@item.CountryName</option>
+                        }
                     </select>
                 </div>
             </div>

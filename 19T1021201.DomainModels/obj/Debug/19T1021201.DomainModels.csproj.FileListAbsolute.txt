@@ -5,7 +5,7 @@ D:\New Volume (E)\2022-2023.HK2\LTWeb_N2\19T1021201\19T1021201.DomainModels\obj\
 D:\New Volume (E)\2022-2023.HK2\LTWeb_N2\19T1021201\19T1021201.DomainModels\obj\Debug\19T1021201.DomainModels.pdb
 D:\New Volume (E)\2022-2023.HK2\Lap Trinh Web\19T1021201\19T1021201.DomainModels\bin\Debug\19T1021201.DomainModels.dll
 D:\New Volume (E)\2022-2023.HK2\Lap Trinh Web\19T1021201\19T1021201.DomainModels\bin\Debug\19T1021201.DomainModels.pdb
-D:\New Volume (E)\2022-2023.HK2\Lap Trinh Web\19T1021201\19T1021201.DomainModels\obj\Debug\19T1021201.DomainModels.csproj.AssemblyReference.cache
 D:\New Volume (E)\2022-2023.HK2\Lap Trinh Web\19T1021201\19T1021201.DomainModels\obj\Debug\19T1021201.DomainModels.csproj.CoreCompileInputs.cache
 D:\New Volume (E)\2022-2023.HK2\Lap Trinh Web\19T1021201\19T1021201.DomainModels\obj\Debug\19T1021201.DomainModels.dll
 D:\New Volume (E)\2022-2023.HK2\Lap Trinh Web\19T1021201\19T1021201.DomainModels\obj\Debug\19T1021201.DomainModels.pdb
+D:\New Volume (E)\2022-2023.HK2\Lap Trinh Web\19T1021201\19T1021201.DomainModels\obj\Debug\19T1021201.DomainModels.csproj.AssemblyReference.cache

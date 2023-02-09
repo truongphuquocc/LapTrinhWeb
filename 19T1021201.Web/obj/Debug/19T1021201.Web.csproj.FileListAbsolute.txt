@@ -110,3 +110,9 @@ D:\New Volume (E)\2022-2023.HK2\Lap Trinh Web\19T1021201\19T1021201.Web\obj\Debu
 D:\New Volume (E)\2022-2023.HK2\Lap Trinh Web\19T1021201\19T1021201.Web\obj\Debug\19T1021201.Web.csproj.CopyComplete
 D:\New Volume (E)\2022-2023.HK2\Lap Trinh Web\19T1021201\19T1021201.Web\obj\Debug\19T1021201.Web.dll
 D:\New Volume (E)\2022-2023.HK2\Lap Trinh Web\19T1021201\19T1021201.Web\obj\Debug\19T1021201.Web.pdb
+D:\New Volume (E)\2022-2023.HK2\Lap Trinh Web\19T1021201\19T1021201.Web\bin\19T1021201.BusinessLayers.dll
+D:\New Volume (E)\2022-2023.HK2\Lap Trinh Web\19T1021201\19T1021201.Web\bin\19T1021201.DataLayers.dll
+D:\New Volume (E)\2022-2023.HK2\Lap Trinh Web\19T1021201\19T1021201.Web\bin\19T1021201.DomainModels.dll
+D:\New Volume (E)\2022-2023.HK2\Lap Trinh Web\19T1021201\19T1021201.Web\bin\19T1021201.BusinessLayers.pdb
+D:\New Volume (E)\2022-2023.HK2\Lap Trinh Web\19T1021201\19T1021201.Web\bin\19T1021201.DataLayers.pdb
+D:\New Volume (E)\2022-2023.HK2\Lap Trinh Web\19T1021201\19T1021201.Web\bin\19T1021201.DomainModels.pdb
