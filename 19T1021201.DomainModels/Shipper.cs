@@ -12,17 +12,17 @@ namespace _19T1021201.DomainModels
     public class Shipper
     {
         /// <summary>
-        /// 
+        /// Mã người giao hàng
         /// </summary>
         public int ShipperID { get; set; }
 
         /// <summary>
-        /// 
+        /// Tên người giao hàng
         /// </summary>
         public string ShipperName { get; set; }
 
         /// <summary>
-        /// 
+        /// Số điện thoại
         /// </summary>
         public string Phone { get; set; }
     }

@@ -8,7 +8,7 @@ using _19T1021201.DomainModels;
 namespace _19T1021201.DataLayers.SQLServer
 {
     /// <summary>
-    /// 
+    /// Cài đặt các phép dữ liệu cho khách hàng
     /// </summary>
     public class CustomerDAL : _BaseDAL, ICommonDAL<Customer>
     {

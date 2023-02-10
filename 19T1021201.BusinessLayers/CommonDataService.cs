@@ -16,6 +16,9 @@ namespace _19T1021201.BusinessLayers
         private static ICountryDAL countryDB;
         private static ICommonDAL<Supplier> supplierDB;
         private static ICommonDAL<Shipper> shipperDB;
+        private static ICommonDAL<Category> categoryDB;
+        private static ICommonDAL<Customer> customerDB;
+        private static ICommonDAL<Employee> employeeDB;
 
         /// <summary>
         /// Ctor
@@ -31,8 +34,15 @@ namespace _19T1021201.BusinessLayers
             supplierDB = new DataLayers.SQLServer.SupplierDAL(connectionString);
 
             shipperDB = new DataLayers.SQLServer.ShipperDAL(connectionString);
+
+            categoryDB = new DataLayers.SQLServer.CategoryDAL(connectionString);
+
+            customerDB = new DataLayers.SQLServer.CustomerDAL(connectionString);
+
+            employeeDB = new DataLayers.SQLServer.EmployeeDAL(connectionString);
         }
-        
+
+        #region Quốc gia
         /// <summary>
         /// Lấy danh sách tất cả quốc gia
         /// </summary>
@@ -41,6 +51,31 @@ namespace _19T1021201.BusinessLayers
         {
             return countryDB.List().ToList();
         }
-  
+        #endregion
+
+        #region các chức năng liên quan đến loại hàng
+
+        #endregion
+
+        #region các chức năng liên quan đến khách hàng
+
+        #endregion
+
+        #region các chức năng liên quan đến nhân viên
+
+        #endregion
+
+        #region các chức năng liên quan đến người giao hàng
+
+        #endregion
+
+        #region các chức năng liên quan đến nhà cung cấp
+
+        #endregion
+
+        #region các chức năng liên quan đến mặt hàng
+
+        #endregion
+
     }
 }

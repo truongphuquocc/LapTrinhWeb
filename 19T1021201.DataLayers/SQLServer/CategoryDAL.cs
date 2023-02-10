@@ -7,8 +7,15 @@ using _19T1021201.DomainModels;
 
 namespace _19T1021201.DataLayers.SQLServer
 {
+    /// <summary>
+    /// Cài đặt dữ liệu cho loại hàng
+    /// </summary>
     public class CategoryDAL : _BaseDAL, ICommonDAL<Category>
     {
+        /// <summary>
+        ///
+        /// </summary>
+        /// <param name="connectionString"></param>
         public CategoryDAL(string connectionString) : base(connectionString)
         {
         }
