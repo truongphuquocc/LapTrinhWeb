@@ -1,4 +1,4 @@
-﻿
+﻿@model _19T1021201.DomainModels.Category
 @{
 
 }
@@ -6,15 +6,16 @@
 <div class="box box-primary">
     <div class="box-body">
         <div class="container">
-            <form>
+            <form action="~/Category/Save" method="post">
                 <div class="form-group">
+                    <input type="hidden" name="SupplierID" value="@Model.CategoryID" />
                     <label>Tên loại hàng:</label>
-                    <input type="text" class="form-control" id="CategoryName" name="CategoryName" autofocus>
+                    <input type="text" class="form-control" id="CategoryName" name="CategoryName" value="@Model.CategoryName" autofocus>
                 </div>
 
                 <div class="form-group">
                     <label>Mô tả loại hàng:</label>
-                    <input type="text" class="form-control" id="Description" name="Description">
+                    <input type="text" class="form-control" id="Description" name="Description" value="@Model.Description">
                 </div>
 
                 <div class="form-group">

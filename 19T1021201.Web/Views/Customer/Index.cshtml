@@ -1,4 +1,4 @@
-﻿
+﻿@model IEnumerable<_19T1021201.DomainModels.Customer>
 @{
     ViewBag.Title = "Khách hàng";
 }
@@ -8,7 +8,7 @@
 
         <form>
             <div class="input-group">
-                <input type="text" class="form-control" placeholder="Search">
+                <input type="text" class="form-control" placeholder="Search" value="@ViewBag.SearchValue">
                 <div class="input-group-btn">
                     <button class="btn btn-success" type="submit">
                         <i class="glyphicon glyphicon-search"></i>
@@ -25,7 +25,7 @@
         </form>
 
 
-        <p>Có <b>100</b> khách hàng trong tổng số <b>10</b> trang</p>
+        <p>Có <b>@ViewBag.RowCount</b> khách hàng trong tổng số <b>@ViewBag.PageCount</b> trang</p>
 
         <table class="table table-bordered table-hover table-striped">
             <thead>
@@ -35,9 +35,6 @@
                     </th>
                     <th>
                         Tên giao dịch
-                    </th>
-                    <th>
-                        Email
                     </th>
                     <th>
                         Địa chỉ
@@ -55,35 +52,33 @@
                 </tr>
             </thead>
             <tbody>
-                @for (int i = 1; i <= 20; i++)
+                @foreach (var item in Model)
                 {
                     <tr>
                         <td>
-                            Trương văn a
+                            @item.CustomerName
                         </td>
                         <td>
-                            Mua tv
+                            @item.ContactName
                         </td>
                         <td>
-                            0255588
+                            @item.Address
                         </td>
                         <td>
-                            159 Trường Chinh
+                            @item.Country
                         </td>
                         <td>
-                            Huế
+                            @item.City
                         </td>
                         <td>
-                            VietNam
+                            @item.PostalCode
                         </td>
-                        <td>
-                            234
-                        </td>
+
                         <td class="text-center">
-                            <a href="~/Customer/Edit" class="btn btn-info">
+                            <a href="~/Customer/Edit/@item.CustomerID" class="btn btn-info">
                                 <i class="glyphicon glyphicon-edit"></i>
                             </a>
-                            <a href="~/Customer/Delete" class="btn btn-danger">
+                            <a href="~/Customer/Delete/@item.CustomerID" class="btn btn-danger">
                                 <i class="glyphicon glyphicon-trash"></i>
                             </a>
                         </td>
@@ -93,11 +88,17 @@
         </table>
         <div class="text-center">
             <ul class="pagination">
-                <li><a href="#">1</a></li>
-                <li><a href="#">2</a></li>
-                <li><a href="#">3</a></li>
-                <li><a href="#">4</a></li>
-                <li><a href="#">5</a></li>
+                @for (int i = 1; i <= ViewBag.PageCount; i++)
+                {
+                    if (i == ViewBag.Page)
+                    {
+                        <li class="active"><a href="#">@i</a></li>
+                    }
+                    else
+                    {
+                        <li><a href="~/Customer?page=@i&searchvalue=@ViewBag.SearchValue">@i</a></li>
+                    }
+                }
             </ul>
         </div>
     </div>

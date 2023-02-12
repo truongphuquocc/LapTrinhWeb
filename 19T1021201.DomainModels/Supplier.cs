@@ -19,12 +19,12 @@ namespace _19T1021201.DomainModels
         /// <summary>
         /// Tên nhà cung cấp
         /// </summary>
-        public int SupplierName { get; set; }
+        public string SupplierName { get; set; }
 
         /// <summary>
         /// Tên giao dịch
         /// </summary>
-        public int ContactName { get; set; }
+        public string ContactName { get; set; }
 
         /// <summary>
         /// Địa chỉ nhà cung cấp

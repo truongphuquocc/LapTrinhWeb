@@ -1,4 +1,4 @@
-﻿
+﻿@model _19T1021201.DomainModels.Category
 @{
     ViewBag.Title = "Xoá nhà loại hàng";
 }
@@ -6,16 +6,16 @@
 <div class="box box-danger">
     <div class="box-body">
         <div class="container">
-            <form>
+            <form action="~/Category/Delete/@Model.CategoryID" method="post">
                 <div class="form-group">
                     <label>Tên loại hàng:</label>
-                    <p class="form-control-static">Điện thoại</p>
+                    <p class="form-control-static">@Model.CategoryName</p>
 
                 </div>
 
                 <div class="form-group">
                     <label>Mô tả loại hàng:</label>
-                    <p class="form-control-static">Không phải là laptop</p>
+                    <p class="form-control-static">@Model.Description</p>
 
                 </div>
 
@@ -29,6 +29,6 @@
                 </div>
             </form>
         </div>
-        </div>
+    </div>
 </div>
 

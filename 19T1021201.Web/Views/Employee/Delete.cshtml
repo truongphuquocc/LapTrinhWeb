@@ -1,4 +1,5 @@
-﻿@{
+﻿@model _19T1021201.DomainModels.Employee
+@{
     ViewBag.Title = "Xóa nhân viên";
 }
 <div class="box box-primary">
@@ -8,41 +9,42 @@
 
     </div>
 
-    <form class="form-horizontal" action="" method="post">
+    <form class="form-horizontal" action="~/Employee/Delete/@Model.EmployeeID" method="post">
+
         <div class="form-group">
             <label class="control-label col-sm-2">Họ đệm</label>
             <div class="col-sm-10">
-                <p class="form-control-static">Trương</p>
+                <p class="form-control-static">@Model.FirstName</p>
             </div>
         </div>
         <div class="form-group">
             <label class="control-label col-sm-2">Tên</label>
             <div class="col-sm-10">
-                <p class="form-control-static">Quốc</p>
+                <p class="form-control-static">@Model.LastName</p>
             </div>
         </div>
         <div class="form-group">
             <label class="control-label col-sm-2">Ngày sinh</label>
             <div class="col-sm-10">
-                <p class="form-control-static">22/12/2001</p>
+                <p class="form-control-static">@Model.BirthDate</p>
             </div>
         </div>
         <div class="form-group">
             <label class="control-label col-sm-2">Email</label>
             <div class="col-sm-10">
-                <p class="form-control-static">quoct324@gmial.com</p>
+                <p class="form-control-static">@Model.Email</p>
             </div>
         </div>
         <div class="form-group">
             <label class="control-label col-sm-2">Ghi chú</label>
             <div class="col-sm-10">
-                <p class="form-control-static">Education includes a BA in psychology from Colorado State University. She also completed (The Art of the Cold Call). Nancy is a member of 'Toastmasters International'.</p>
+                <p class="form-control-static">@Model.Notes</p>
             </div>
         </div>
         <div class="form-group">
             <div class="col-lg-offset-2 col-sm-10">
-               
-                <img id="Photo" src="https://images.pexels.com/photos/2381069/pexels-photo-2381069.jpeg?auto=compress&cs=tinysrgb&w=1600" class="img img-bordered" style="width:200px" />
+
+                <img id="Photo" src="@Model.Photo" class="img img-bordered" style="width:200px" />
             </div>
         </div>
         <div class="form-group">

@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using _19T1021201.DomainModels;
+using _19T1021201.BusinessLayers;
 
 namespace _19T1021201.Web.Controllers
 {
@@ -12,38 +14,89 @@ namespace _19T1021201.Web.Controllers
         /// 
         /// </summary>
         /// <returns></returns>
-        public ActionResult Index()
+        public ActionResult Index(int page = 1, int pageSize = 20, string searchValue = "")
         {
-            return View();
+            int rowCount = 0;
+            var model = CommonDataService.ListOfEmployees(page, pageSize, searchValue, out rowCount);
+
+            int pageCount = rowCount / pageSize;
+            if (pageCount % pageSize > 0)
+                pageCount += 1;
+
+            ViewBag.PageCount = pageCount;
+            ViewBag.Page = page;
+            ViewBag.RowCount = rowCount;
+            ViewBag.PageSize = pageSize;
+            ViewBag.SearchValue = searchValue;
+
+            return View(model);
         }
 
         /// <summary>
-        /// Giao diện để bổ sung nhà cung cấp mới
+        /// Giao diện để bổ sung nhân viên mới
         /// </summary>
         /// <returns></returns>
         public ActionResult Create()
         {
+            var data = new Employee()
+            {
+                EmployeeID = 0
+            };
             ViewBag.Title = "Bổ sung nhân viên";
-            return View("Edit");
+            return View("Edit", data);
         }
 
         /// <summary>
         /// 
         /// </summary>
         /// <returns></returns>
-        public ActionResult Edit()
+        public ActionResult Edit(string id)
         {
+            int employeeId = Convert.ToInt32(id);
+
+            var data = CommonDataService.GetEmployee(employeeId);
             ViewBag.Title = "Sửa đổi nhân viên";
-            return View();
+            return View(data);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="data"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public ActionResult Save(Employee data)
+        {
+
+            if (data.EmployeeID == 0)
+            {
+                CommonDataService.AddEmployee(data);
+            }
+            else
+            {
+                CommonDataService.UpdateEmployee(data);
+            }
+
+            return RedirectToAction("Index");
         }
 
         /// <summary>
         /// 
         /// </summary>
         /// <returns></returns>
-        public ActionResult Delete()
+        public ActionResult Delete(string id)
         {
-            return View();
+            int employeeId = Convert.ToInt32(id);
+            if (Request.HttpMethod == "GET")
+            {
+                var data = CommonDataService.GetEmployee(employeeId);
+                return View(data);
+            }
+            else
+            {
+                CommonDataService.DeleteEmployee(employeeId);
+                return RedirectToAction("Index");
+            }
         }
     }
 }

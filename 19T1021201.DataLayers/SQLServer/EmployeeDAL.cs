@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,9 +25,32 @@ namespace _19T1021201.DataLayers.SQLServer
         /// <returns>Kết quả theo kiểu số nguyên thành công hay thất bại</returns>
         public int Add(Employee data)
         {
-            throw new NotImplementedException();
-        }
+            int result = 0;
+            using (SqlConnection cn = OpenConnection())
+            {
 
+                String Password = "123456789";
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandText = @"insert into Employees(LastName,FirstName,BirthDate,Notes,Photo,Email,Password)
+                                            values(@LastName,@FirstName,@BirthDate,@Notes,@Photo,@Email,@Password)
+                                             Select @@Identity;";
+                cmd.CommandType = CommandType.Text;
+                cmd.Connection = cn;
+
+                //Truyền tham số cho câu truy vấn
+                cmd.Parameters.AddWithValue("@LastName", data.LastName);
+                cmd.Parameters.AddWithValue("@FirstName", data.FirstName);
+                cmd.Parameters.AddWithValue("@BirthDate", data.BirthDate);
+                cmd.Parameters.AddWithValue("@Notes", data.Notes);
+                cmd.Parameters.AddWithValue("@Photo", data.Photo);
+                cmd.Parameters.AddWithValue("@Email", data.Email);
+                cmd.Parameters.AddWithValue("@Password", Password);
+                result = Convert.ToInt32(cmd.ExecuteScalar());
+
+                cn.Close();
+            }
+            return result;
+        }
         /// <summary>
         /// Đếm sô lượng nhân viên thỏa mã sau kết quả tìm kiếm
         /// </summary>
@@ -33,39 +58,130 @@ namespace _19T1021201.DataLayers.SQLServer
         /// <returns>Tên hoặc địa chỉ cần tìm kiếm. Nếu không nhập thì đếm toàn bộ</returns>
         public int Count(string searchValue = "")
         {
-            throw new NotImplementedException();
-        }
+            if (searchValue != "")
+                searchValue = "%" + searchValue + "%";
 
+            int count = 0;
+            using (SqlConnection cn = OpenConnection())
+            {
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandText = @"select count(*)
+                                    from    Employees
+                                    where  (@searchValue = N'')
+                                        or (
+                                                (FirstName like @searchValue)
+                                                or
+                                                (LastName like @searchValue)
+                                                or
+                                                (Email like @searchValue)
+                                            )";
+                cmd.CommandType = CommandType.Text;
+                cmd.Connection = cn;
+
+                //Truyền tham số cho câu truy vấn
+                cmd.Parameters.AddWithValue("@searchValue", searchValue);
+                count = Convert.ToInt32(cmd.ExecuteScalar());
+
+                cn.Close();
+            }
+
+            return count;
+        }
         /// <summary>
         /// Xóa 1 nhân viên theo ID nhân viên
         /// </summary>
-        /// <param name="ID">Id nhân viên</param>
+        /// <param name="EmployeeID">Id nhân viên</param>
         /// <returns>Trả về kết quả true or false</returns>
-        public bool Delete(int ID)
+        public bool Delete(int EmployeeID)
         {
-            throw new NotImplementedException();
-        }
+            bool result = false;
+            using (SqlConnection cn = OpenConnection())
+            {
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandText = @"Delete 
+                                    from Employees
+                                     where EmployeeID = @EmployeeID";
+                cmd.CommandType = CommandType.Text;
+                cmd.Connection = cn;
 
+                //Truyền tham số cho câu truy vấn
+                cmd.Parameters.AddWithValue("@EmployeeID", EmployeeID);
+
+                result = cmd.ExecuteNonQuery() > 0;
+
+                cn.Close();
+            }
+
+
+            return result;
+        }
         /// <summary>
         /// Lấy thông tin 1 nhân viên
         /// </summary>
-        /// <param name="ID">ID nhân viên</param>
+        /// <param name="EmployeeID">ID nhân viên</param>
         /// <returns>Dữ liệu nhân viên theo ID nhân viên</returns>
-        public Employee Get(int ID)
+        public Employee Get(int EmployeeID)
         {
-            throw new NotImplementedException();
-        }
+            Employee data = null;
+            using (SqlConnection cn = OpenConnection())
+            {
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandText = @"select *
+                                    from Employees
+                                     where EmployeeID = @EmployeeID";
+                cmd.CommandType = CommandType.Text;
+                cmd.Connection = cn;
 
+                //Truyền tham số cho câu truy vấn
+                cmd.Parameters.AddWithValue("@EmployeeID", EmployeeID);
+
+
+                var result = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+                if (result.Read())
+                {
+                    data = new Employee()
+                    {
+                        EmployeeID = Convert.ToInt32(result["EmployeeID"]),
+                        LastName = Convert.ToString(result["LastName"]),
+                        FirstName = Convert.ToString(result["FirstName"]),
+                        BirthDate = Convert.ToDateTime(result["BirthDate"]),
+                        Notes = Convert.ToString(result["Notes"]),
+                        Photo = Convert.ToString(result["Photo"]),
+                        Email = Convert.ToString(result["Email"]),
+                        Password = Convert.ToString(result["Password"])
+
+                    };
+                }
+                result.Close();
+                cn.Close();
+            }
+            return data;
+        }
         /// <summary>
         /// Kiểm tra ID nhân viên có tồn tại trong bảng dữ liệu khác
         /// </summary>
-        /// <param name="id"></param>
+        /// <param name="EmployeeID"></param>
         /// <returns>Trả về kết quả true or false</returns>
-        public bool InUsed(int id)
+        public bool InUsed(int EmployeeID)
         {
-            throw new NotImplementedException();
-        }
+            bool result = false;
 
+            using (SqlConnection cn = OpenConnection())
+            {
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandText = @"Select case when Exists(select * from Orders where EmployeeID = @employeeID) then 1 else 0 end";
+                cmd.CommandType = System.Data.CommandType.Text;
+                cmd.Connection = cn;
+                cmd.Parameters.AddWithValue("@employeeID", EmployeeID);
+
+                result = Convert.ToBoolean(cmd.ExecuteScalar());
+
+                cn.Close();
+            }
+
+
+            return result;
+        }
         /// <summary>
         /// Tìm kiếm và lấy danh sách nhân viên dưới dạng phân trang
         /// </summary>
@@ -75,9 +191,61 @@ namespace _19T1021201.DataLayers.SQLServer
         /// <returns>Danh sách  nhân viên sau kết quả tìm kiếm</returns>
         public IList<Employee> List(int page = 1, int pageSize = 0, string searchValue = "")
         {
-            throw new NotImplementedException();
-        }
+            IList<Employee> data = new List<Employee>();
 
+            if (searchValue != "")
+                searchValue = "%" + searchValue + "%";
+            //Tạo CSDL
+            using (SqlConnection cn = OpenConnection())
+            {
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandText = @"select *
+                                    from
+                                        (
+                                            select    *,
+                                                    row_number() over(order by FirstName) as RowNumber
+                                            from    Employees
+                                            where    (@searchValue = N'')
+                                                or (
+                                                        (FirstName like @searchValue)
+                                                        or
+                                                        (LastName like @searchValue)
+                                                        or
+                                                        (Email like @searchValue)
+                                                    )
+                                        ) as t
+                                    where (@pageSize = 0) or (t.RowNumber between (@page - 1) * @pageSize + 1 and @page * @pageSize)
+                                    order by t.RowNumber;";
+                cmd.CommandType = CommandType.Text;
+                cmd.Connection = cn;
+
+                //Truyền tham số cho câu truy vấn
+                cmd.Parameters.AddWithValue("@page", page);
+                cmd.Parameters.AddWithValue("@pageSize", pageSize);
+                cmd.Parameters.AddWithValue("@searchValue", searchValue);
+
+                SqlDataReader dbReader = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+                while (dbReader.Read())
+                {
+                    data.Add(new Employee()
+                    {
+                        EmployeeID = Convert.ToInt32(dbReader["EmployeeID"]),
+                        FirstName = Convert.ToString(dbReader["FirstName"]),
+                        LastName = Convert.ToString(dbReader["LastName"]),
+                        BirthDate = Convert.ToDateTime(dbReader["BirthDate"]),
+                        Notes = Convert.ToString(dbReader["Notes"]),
+                        Photo = Convert.ToString(dbReader["Photo"]),
+                        Email = Convert.ToString(dbReader["Email"]),
+                        Password = Convert.ToString(dbReader["Password"])
+                    });
+                }
+                dbReader.Close();
+                cn.Close();
+            }
+
+
+            return data;
+        }
         /// <summary>
         /// Cập nhật thông tin 1 nhân viên
         /// </summary>
@@ -85,7 +253,34 @@ namespace _19T1021201.DataLayers.SQLServer
         /// <returns>Trả về kết quả true or false </returns>
         public bool Update(Employee data)
         {
-            throw new NotImplementedException();
+            bool result = false;
+            using (SqlConnection cn = OpenConnection())
+            {
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandText = @"Update Employees
+                                    Set LastName = @LastName,
+                                    FirstName = @FirstName,
+                                    BirthDate = @BirthDate,
+                                    Notes = @Notes,
+                                    Photo = @Photo,
+                                    Email = @Email
+                                    WHERE EmployeeID = @EmployeeID";
+                cmd.CommandType = CommandType.Text;
+                cmd.Connection = cn;
+
+                //Truyền tham số cho câu truy vấn
+                cmd.Parameters.AddWithValue("@LastName", data.LastName);
+                cmd.Parameters.AddWithValue("@FirstName", data.FirstName);
+                cmd.Parameters.AddWithValue("@BirthDate", data.BirthDate);
+                cmd.Parameters.AddWithValue("@Notes", data.Notes);
+                cmd.Parameters.AddWithValue("@Photo", data.Photo);
+                cmd.Parameters.AddWithValue("@Email", data.Email);
+                cmd.Parameters.AddWithValue("@EmployeeID", data.EmployeeID);
+                result = cmd.ExecuteNonQuery() > 0;
+
+                cn.Close();
+            }
+            return result;
         }
     }
 }
