@@ -20,16 +20,16 @@ namespace _19T1021201.Web.Controllers
             var model = CommonDataService.ListOfEmployees(page, pageSize, searchValue, out rowCount);
 
             int pageCount = rowCount / pageSize;
-            if (pageCount % pageSize > 0)
+            if (rowCount % pageSize > 0)
                 pageCount += 1;
 
-            ViewBag.PageCount = pageCount;
             ViewBag.Page = page;
+            ViewBag.PageCount = pageCount;
             ViewBag.RowCount = rowCount;
             ViewBag.PageSize = pageSize;
             ViewBag.SearchValue = searchValue;
-
             return View(model);
+
         }
 
         /// <summary>
