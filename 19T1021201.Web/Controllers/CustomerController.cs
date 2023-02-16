@@ -1,5 +1,6 @@
 ﻿using _19T1021201.BusinessLayers;
 using _19T1021201.DomainModels;
+using _19T1021201.Web.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,25 +11,53 @@ namespace _19T1021201.Web.Controllers
 {
     public class CustomerController : Controller
     {
+        private const int PAGE_SIZE = 8;
+        private const string CUSTOMER_SEARCH = "SearchCustomerCondition";
+
         /// <summary>
         /// 
         /// </summary>
         /// <returns></returns>
-        public ActionResult Index(int page = 1, int pageSize = 20, string searchValue = "")
+        // GET: Customer
+        public ActionResult Index()
+        {
+            PaginationSearchInput condition = Session[CUSTOMER_SEARCH] as PaginationSearchInput;
+
+            if (condition == null)
+            {
+                condition = new PaginationSearchInput()
+                {
+                    Page = 1,
+                    PageSize = PAGE_SIZE,
+                    SearchValue = ""
+                };
+            }
+
+            return View(condition);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="condition"></param>
+        /// <returns></returns>
+        public ActionResult Search(PaginationSearchInput condition)
         {
             int rowCount = 0;
-            var model = CommonDataService.ListOfCustomer(page, pageSize, searchValue, out rowCount);
+            var data = CommonDataService.ListOfCustomer(condition.Page, condition.PageSize, condition.SearchValue, out rowCount);
+            var reault = new CustomerSearchOutput()
+            {
+                Page = condition.Page,
+                PageSize = condition.PageSize,
+                SearchValue = condition.SearchValue,
+                RowCount = rowCount,
+                Data = data
+            };
+            Session[CUSTOMER_SEARCH] = condition;
 
-            int pageCount = rowCount / pageSize;
-            if (rowCount % pageSize > 0)
-                pageCount += 1;
 
-            ViewBag.Page = page;
-            ViewBag.PageCount = pageCount;
-            ViewBag.RowCount = rowCount;
-            ViewBag.PageSize = pageSize;
-            ViewBag.SearchValue = searchValue;
-            return View(model);
+
+            return View(reault);
         }
 
         /// <summary>
