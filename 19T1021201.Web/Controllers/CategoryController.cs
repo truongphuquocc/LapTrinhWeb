@@ -81,11 +81,15 @@ namespace _19T1021201.Web.Controllers
         /// 
         /// </summary>
         /// <returns></returns>
-        public ActionResult Edit(string id)
+        public ActionResult Edit(int id)
         {
+            if (id == 0)
+                return RedirectToAction("Index");
             int categoryId = Convert.ToInt32(id);
 
             var data = CommonDataService.GetCategory(categoryId);
+            if (data == null)
+                return RedirectToAction("Index");
             ViewBag.Title = "Sửa đổi loại hàng";
             return View(data);
         }
@@ -96,35 +100,61 @@ namespace _19T1021201.Web.Controllers
         /// <param name="data"></param>
         /// <returns></returns>
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Save(Category data)
         {
-            if (data.CategoryID == 0)
+            try
             {
-                CommonDataService.AddCategory(data);
-            }
-            else
-            {
-                CommonDataService.UpdateCategory(data);
-            }
+                if (string.IsNullOrWhiteSpace(data.CategoryName))
+                    ModelState.AddModelError("CategoryName", "Tên loại hàng không được để trống");
 
-            return RedirectToAction("Index");
+                if (string.IsNullOrWhiteSpace(data.Description))
+                    ModelState.AddModelError("Description", "Tên loại hàng không được để trống");
+
+
+                if (!ModelState.IsValid)
+                {
+                    ViewBag.Title = data.CategoryID == 0 ? "Bổ sung loại hàng" : "Cập nhật loại hàng";
+                    return View("Edit", data);
+                }
+
+                if (data.CategoryID == 0)
+                {
+                    CommonDataService.AddCategory(data);
+                }
+                else
+                {
+                    CommonDataService.UpdateCategory(data);
+                }
+
+                return RedirectToAction("Index");
+            }
+            catch(Exception ex)
+            {
+                return Content("Có lỗi xãy ra. Vui lòng thử lại sau!");
+            }
         }
 
         /// <summary>
         /// 
         /// </summary>
         /// <returns></returns>
-        public ActionResult Delete(string id)
+        public ActionResult Delete(int id)
         {
-            int categoryID = Convert.ToInt32(id);
+            if (id == 0)
+                return RedirectToAction("Index");
+    
             if (Request.HttpMethod == "GET")
             {
-                var data = CommonDataService.GetCategory(categoryID);
+                
+                var data = CommonDataService.GetCategory(id);
+                if (data == null)
+                    return RedirectToAction("Index");
                 return View(data);
             }
             else
             {
-                CommonDataService.DeleteCategory(categoryID);
+                CommonDataService.DeleteCategory(id);
                 return RedirectToAction("Index");
             }
         }

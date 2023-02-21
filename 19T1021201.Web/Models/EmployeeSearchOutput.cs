@@ -7,12 +7,12 @@ using System.Web;
 namespace _19T1021201.Web.Models
 {
     /// <summary>
-    /// kết quả tìm kiếm nhà cung cấp dưới dạng phân trang
+    /// kết quả tìm kiếm nhân viên dưới dạng phân trang
     /// </summary>
     public class EmployeeSearchOutput : PaginationSearchOutput
     {
         /// <summary>
-        /// Danh sách nhà cung cấp
+        /// Danh sách nhân viên
         /// </summary>
         public List<Employee> Data { get; set; }
     }

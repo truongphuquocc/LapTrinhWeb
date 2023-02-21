@@ -82,11 +82,19 @@ namespace _19T1021201.Web.Controllers
         /// 
         /// </summary>
         /// <returns></returns>
-        public ActionResult Edit(string id)
+        public ActionResult Edit(int id = 0)
         {
+            if (id == 0)
+                return RedirectToAction("Index");
+
             int supplierId = Convert.ToInt32(id);
 
             var data = CommonDataService.GetSupplier(supplierId);
+            if (data == null)
+                return RedirectToAction("Index");
+
+            //return Json(data, JsonRequestBehavior.AllowGet);
+
             ViewBag.Title = "Sửa đổi nhà cung cấp";
             return View(data);
         }
@@ -97,30 +105,62 @@ namespace _19T1021201.Web.Controllers
         /// <param name="data"></param>
         /// <returns></returns>
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Save(Supplier data)
         {
-            if(data.SupplierID == 0)
+            try
             {
-                CommonDataService.AddSupplier(data);
+                //kiểm soát đầu vào
+                if (string.IsNullOrWhiteSpace(data.SupplierName))
+                   ModelState.AddModelError("SupplierName", "Tên không được để trống");
+                if (string.IsNullOrWhiteSpace(data.ContactName))
+                    ModelState.AddModelError("ContactName", "Tên giao dịch không được để trống");
+                if (string.IsNullOrWhiteSpace(data.Country))
+                    ModelState.AddModelError("Country", "Vui lòng chọn quốc gia");
+
+                if(!ModelState.IsValid)
+                {
+                    ViewBag.Title = data.SupplierID == 0 ? "Bổ sung nhà cung cấp" : "Cập nhật nhà cung cấp";
+                    return View("Edit", data);
+                }
+
+                if (data.SupplierID == 0)
+                {
+                    CommonDataService.AddSupplier(data);
+                }
+                else
+                {
+                    CommonDataService.UpdateSupplier(data);
+                }
+
+                return RedirectToAction("Index");
             }
-            else
+            catch(Exception ex)
             {
-                CommonDataService.UpdateSupplier(data);
+                return Content("Có lỗi xãy ra. Vui lòng thử lại sau!");
             }
 
-            return RedirectToAction("Index");
+            
         }
 
         /// <summary>
         /// 
         /// </summary>
         /// <returns></returns>
-        public ActionResult Delete(string id)
+        public ActionResult Delete(int id)
         {
-            int supplierID = Convert.ToInt32(id);
-            if(Request.HttpMethod == "GET")
+            if (id == 0)
+                return RedirectToAction("Index");
+            int supplierID = id;
+      
+
+            if (Request.HttpMethod == "GET")
             {
                 var data = CommonDataService.GetSupplier(supplierID);
+                if(data == null)
+                {
+                    return RedirectToAction("Index");
+                }    
                 return View(data);
             }
             else

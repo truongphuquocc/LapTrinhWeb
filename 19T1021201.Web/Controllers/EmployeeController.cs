@@ -78,11 +78,12 @@ namespace _19T1021201.Web.Controllers
         /// 
         /// </summary>
         /// <returns></returns>
-        public ActionResult Edit(string id)
+        public ActionResult Edit(int id)
         {
-            int employeeId = Convert.ToInt32(id);
+            if (id == 0)
+                return RedirectToAction("Index");
 
-            var data = CommonDataService.GetEmployee(employeeId);
+            var data = CommonDataService.GetEmployee(id);
             ViewBag.Title = "Sửa đổi nhân viên";
             return View(data);
         }
@@ -93,36 +94,61 @@ namespace _19T1021201.Web.Controllers
         /// <param name="data"></param>
         /// <returns></returns>
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Save(Employee data)
         {
 
-            if (data.EmployeeID == 0)
-            {
-                CommonDataService.AddEmployee(data);
-            }
-            else
-            {
-                CommonDataService.UpdateEmployee(data);
-            }
+   
+                if (string.IsNullOrWhiteSpace(data.FirstName))
+                    ModelState.AddModelError("FirstName", "Họ Nhân viên không được để trống");
+                if (string.IsNullOrWhiteSpace(data.LastName))
+                    ModelState.AddModelError("LastName", "Tên Nhân viên không được để trống");
+                if (string.IsNullOrWhiteSpace(data.Email))
+                    ModelState.AddModelError("Email", "Email Nhân viên không được để trống");
 
-            return RedirectToAction("Index");
+
+
+                if (string.IsNullOrWhiteSpace(data.Notes))
+                    data.Notes = "";
+                if (string.IsNullOrWhiteSpace(data.Photo))
+                    data.Photo = "";
+
+                if (!ModelState.IsValid)
+                {
+                    ViewBag.Title = data.EmployeeID == 0 ? "Bổ sung nhân viên" : "Cập nhật nhân viên";
+                    return View("Edit", data);
+                }
+                if (data.EmployeeID == 0)
+                {
+                    CommonDataService.AddEmployee(data);
+                }
+                else
+                {
+                    CommonDataService.UpdateEmployee(data);
+                }
+
+                return RedirectToAction("Index");
+  
         }
 
         /// <summary>
         /// 
         /// </summary>
         /// <returns></returns>
-        public ActionResult Delete(string id)
+        public ActionResult Delete(int id)
         {
-            int employeeId = Convert.ToInt32(id);
+            if (id == 0)
+                return RedirectToAction("Index");
             if (Request.HttpMethod == "GET")
             {
-                var data = CommonDataService.GetEmployee(employeeId);
+                var data = CommonDataService.GetEmployee(id);
+                if (data == null)
+                    return RedirectToAction("Index");
                 return View(data);
             }
             else
             {
-                CommonDataService.DeleteEmployee(employeeId);
+                CommonDataService.DeleteEmployee(id);
                 return RedirectToAction("Index");
             }
         }
