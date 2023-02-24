@@ -31,11 +31,12 @@
             <div class="form-group">
                 <label class="control-label col-sm-2">Ngày sinh:</label>
                 <div class="col-sm-10">
-                    <input type="text" name="birthDateString"
+                    <input type="text" name="birthday"
                            class="form-control datepicker"
                            value="@string.Format("{0:dd/MM/yyyy}",Model.BirthDate)" />
 
-                    @Html.ValidationMessageFor(m => m.BirthDate, "", new { @class = "text-danger" })
+                    @Html.ValidationMessageFor(m => m.BirthDate, "", new { @class = "text-danger", @style = "color : red" })
+                    @Html.HiddenFor(m => m.BirthDate)
                 </div>
             </div>
 
@@ -63,16 +64,15 @@
             <div class="form-group">
                 <label class="control-label col-sm-2">Ảnh cá nhân:</label>
                 <div class="col-sm-10">
-
-                    <input type="file" class="form-control" name="uploadPhoto" accept="image/*"
-                           onchange="document.getElementById('Photo').src = window.URL.createObjectURL(this.files[0])" />
+                    <input id="UploadPhoto" name="uploadPhoto" type="file" accept="image/*"
+                           onchange="document.getElementById('Photo').src = window.URL.createObjectURL(this.files[0])">
                 </div>
             </div>
 
             <div class="form-group">
                 <div class="col-lg-offset-2 col-sm-10">
-                    <input type="hidden" name="Photo" value="@Model.Photo" />
-                    <img id="Photo" src="@Model.Photo" class="img img-bordered" style="width:200px" />
+                    <input type="hidden" name="Photo" value="@Model.Photo"  />
+                    <img id="Photo" src="~/Images/@Model.Photo" class="img img-bordered" style="width:200px" />
                 </div>
             </div>
 

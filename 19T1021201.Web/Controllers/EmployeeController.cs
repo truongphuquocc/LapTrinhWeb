@@ -6,6 +6,8 @@ using System.Web.Mvc;
 using _19T1021201.DomainModels;
 using _19T1021201.BusinessLayers;
 using _19T1021201.Web.Models;
+using System.Globalization;
+using _19T1021201.Web;
 
 namespace _19T1021201.Web.Controllers
 {
@@ -95,19 +97,30 @@ namespace _19T1021201.Web.Controllers
         /// <returns></returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Save(Employee data)
+        public ActionResult Save(Employee data, string birthday, HttpPostedFileBase uploadPhoto)//Employee data
         {
 
-   
-                if (string.IsNullOrWhiteSpace(data.FirstName))
-                    ModelState.AddModelError("FirstName", "Họ Nhân viên không được để trống");
+
+                DateTime? d = Converter.DMYStringToDateTime(birthday);
+                if (d == null)
+                    ModelState.AddModelError("BirthDate", "Ngày Sinh Chưa Đúng Định Dạng");
+                else
+                {
+                    DateTime startday = new DateTime(1753, 1, 1);
+                    DateTime enday = new DateTime(9999, 12, 31);
+                    if (d > startday && d < enday)
+                        data.BirthDate = d.Value;
+                    else
+                    {
+                        ModelState.AddModelError("BirthDate", "Ngày Sinh Chưa Đúng Định Dạng");
+                    }
+                }
                 if (string.IsNullOrWhiteSpace(data.LastName))
-                    ModelState.AddModelError("LastName", "Tên Nhân viên không được để trống");
+                    ModelState.AddModelError("LastName", "Họ Đệm Không Được Để Trống");
+                if (string.IsNullOrWhiteSpace(data.FirstName))
+                    ModelState.AddModelError("FirstName", "Tên Không Được Để Trống");
                 if (string.IsNullOrWhiteSpace(data.Email))
-                    ModelState.AddModelError("Email", "Email Nhân viên không được để trống");
-
-
-
+                    ModelState.AddModelError("Email", "Email Không Được Để Trống");
                 if (string.IsNullOrWhiteSpace(data.Notes))
                     data.Notes = "";
                 if (string.IsNullOrWhiteSpace(data.Photo))
@@ -118,6 +131,16 @@ namespace _19T1021201.Web.Controllers
                     ViewBag.Title = data.EmployeeID == 0 ? "Bổ sung nhân viên" : "Cập nhật nhân viên";
                     return View("Edit", data);
                 }
+
+                if(uploadPhoto != null)
+                {
+                    string path = Server.MapPath("~/Images");
+                    string fileName = $"{DateTime.Now.Ticks}_{uploadPhoto.FileName}";
+                    string filePath = System.IO.Path.Combine(path, fileName);
+                    uploadPhoto.SaveAs(filePath);
+                    data.Photo = fileName;
+                }    
+
                 if (data.EmployeeID == 0)
                 {
                     CommonDataService.AddEmployee(data);
@@ -128,7 +151,8 @@ namespace _19T1021201.Web.Controllers
                 }
 
                 return RedirectToAction("Index");
-  
+            
+
         }
 
         /// <summary>

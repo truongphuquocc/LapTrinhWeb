@@ -1,0 +1,22 @@
+﻿@model _19T1021201.Web.Controllers.Person
+@{
+    ViewBag.Title = "Test";
+}
+
+<div class=" box box-success">
+    <div class="box-body">
+        <form action="~/Test/Input" method="post" class="form-horizontal">
+            <label>Name: </label>
+            <input type="text" name="Name" value="@Model.Name" class="form-control" /><br />
+
+            <label>BirthDate: </label>
+            <input type="text" name="Birthdate" value="@string.Format("{0:yyyy/MM/dd}",Model.Birthdate)" class="form-control" /><br />
+
+            <label>Salary: </label>
+            <input type="text" name="Salary" value="@Model.Salary" class="form-control" /><br />
+            <button type="submit" class="btn btn-primary">
+                Submit
+            </button>
+        </form>
+    </div>
+</div>
