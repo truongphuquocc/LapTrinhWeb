@@ -11,16 +11,16 @@ using _19T1021201.Web;
 
 namespace _19T1021201.Web.Controllers
 {
+    [Authorize]
     public class EmployeeController : Controller
     {
-        private const int PAGE_SIZE = 8;
+        private const int PAGE_SIZE = 5;//1 giá trị dùng từ 2 lần trở lên nên dùng hằng
         private const string EMPLOYEE_SEARCH = "SearchEmployeeCondition";
-
+        private const string EMPLOYEE_SAVE = "SaveEmployeeCondition";
         /// <summary>
         /// 
         /// </summary>
         /// <returns></returns>
-        // GET: Employee
         public ActionResult Index()
         {
             PaginationSearchInput condition = Session[EMPLOYEE_SEARCH] as PaginationSearchInput;
@@ -35,9 +35,9 @@ namespace _19T1021201.Web.Controllers
                 };
             }
 
+
             return View(condition);
         }
-
         /// <summary>
         /// 
         /// </summary>
@@ -47,7 +47,7 @@ namespace _19T1021201.Web.Controllers
         {
             int rowCount = 0;
             var data = CommonDataService.ListOfEmployees(condition.Page, condition.PageSize, condition.SearchValue, out rowCount);
-            var reault = new EmployeeSearchOutput()
+            var result = new EmployeeSearchOutput()
             {
                 Page = condition.Page,
                 PageSize = condition.PageSize,
@@ -55,15 +55,12 @@ namespace _19T1021201.Web.Controllers
                 RowCount = rowCount,
                 Data = data
             };
+
             Session[EMPLOYEE_SEARCH] = condition;
-
-
-
-            return View(reault);
+            return View(result);
         }
-
         /// <summary>
-        /// Giao diện để bổ sung nhân viên mới
+        /// Giao diện bổ sung nhân viên mới
         /// </summary>
         /// <returns></returns>
         public ActionResult Create()
@@ -75,21 +72,21 @@ namespace _19T1021201.Web.Controllers
             ViewBag.Title = "Bổ sung nhân viên";
             return View("Edit", data);
         }
-
         /// <summary>
-        /// 
+        /// Giao diện cập nhật thông tin nhân viên
         /// </summary>
         /// <returns></returns>
-        public ActionResult Edit(int id)
+        public ActionResult Edit(int id = 0)
         {
+            //int employeeId = Convert.ToInt32(id);
             if (id == 0)
                 return RedirectToAction("Index");
-
             var data = CommonDataService.GetEmployee(id);
-            ViewBag.Title = "Sửa đổi nhân viên";
+            if (data == null)
+                return RedirectToAction("Index");
+            ViewBag.Title = "Cập Nhật Thông Tin Nhân Viên";
             return View(data);
         }
-
         /// <summary>
         /// 
         /// </summary>
@@ -97,70 +94,80 @@ namespace _19T1021201.Web.Controllers
         /// <returns></returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Save(Employee data, string birthday, HttpPostedFileBase uploadPhoto)//Employee data
+        public ActionResult Save(Employee data, string birthday, HttpPostedFileBase UploadPhoto)//Employee data
         {
 
-
-                DateTime? d = Converter.DMYStringToDateTime(birthday);
-                if (d == null)
+            //try
+            //{
+            DateTime? d = Converter.DMYStringToDateTime(birthday);
+            if (d == null)
+                ModelState.AddModelError("BirthDate", $"Ngày Sinh {birthday} Chưa Đúng Định Dạng");
+            else
+            {
+                DateTime startday = new DateTime(1753, 1, 1);
+                DateTime enday = new DateTime(9999, 12, 31);
+                if (d > startday && d < enday)
+                    data.BirthDate = d.Value;
+                else
+                {
                     ModelState.AddModelError("BirthDate", "Ngày Sinh Chưa Đúng Định Dạng");
-                else
-                {
-                    DateTime startday = new DateTime(1753, 1, 1);
-                    DateTime enday = new DateTime(9999, 12, 31);
-                    if (d > startday && d < enday)
-                        data.BirthDate = d.Value;
-                    else
-                    {
-                        ModelState.AddModelError("BirthDate", "Ngày Sinh Chưa Đúng Định Dạng");
-                    }
                 }
-                if (string.IsNullOrWhiteSpace(data.LastName))
-                    ModelState.AddModelError("LastName", "Họ Đệm Không Được Để Trống");
-                if (string.IsNullOrWhiteSpace(data.FirstName))
-                    ModelState.AddModelError("FirstName", "Tên Không Được Để Trống");
-                if (string.IsNullOrWhiteSpace(data.Email))
-                    ModelState.AddModelError("Email", "Email Không Được Để Trống");
-                if (string.IsNullOrWhiteSpace(data.Notes))
-                    data.Notes = "";
-                if (string.IsNullOrWhiteSpace(data.Photo))
-                    data.Photo = "";
+            }
 
-                if (!ModelState.IsValid)
-                {
-                    ViewBag.Title = data.EmployeeID == 0 ? "Bổ sung nhân viên" : "Cập nhật nhân viên";
-                    return View("Edit", data);
-                }
 
-                if(uploadPhoto != null)
-                {
-                    string path = Server.MapPath("~/Images");
-                    string fileName = $"{DateTime.Now.Ticks}_{uploadPhoto.FileName}";
-                    string filePath = System.IO.Path.Combine(path, fileName);
-                    uploadPhoto.SaveAs(filePath);
-                    data.Photo = fileName;
-                }    
 
-                if (data.EmployeeID == 0)
-                {
-                    CommonDataService.AddEmployee(data);
-                }
-                else
-                {
-                    CommonDataService.UpdateEmployee(data);
-                }
+            if (string.IsNullOrWhiteSpace(data.LastName))
+                ModelState.AddModelError("LastName", "Họ Đệm Không Được Để Trống");
+            if (string.IsNullOrWhiteSpace(data.FirstName))
+                ModelState.AddModelError("FirstName", "Tên Không Được Để Trống");
+            if (string.IsNullOrWhiteSpace(data.Email))
+                ModelState.AddModelError("Email", "Email Không Được Để Trống");
+            if (string.IsNullOrWhiteSpace(data.Notes))
+                data.Notes = "";
+            if (string.IsNullOrWhiteSpace(data.Photo))
+                data.Photo = "";
 
-                return RedirectToAction("Index");
-            
+            if (!ModelState.IsValid)
+            {
+                ViewBag.Title = data.EmployeeID == 0 ? "Bổ sung nhân viên" : "Cập nhật nhân viên";
+                return View("Edit", data);
+            }
+
+
+            if (UploadPhoto != null)
+            {
+                string path = Server.MapPath("~/Photos"); //mappath: lấy đường dẫn vật lí
+                string fileName = $"{DateTime.Now.Ticks}_{UploadPhoto.FileName}";
+                string filePath = System.IO.Path.Combine(path, fileName);//cộng chuỗi
+                UploadPhoto.SaveAs(filePath);
+                data.Photo = fileName;
+            }
+
+            if (data.EmployeeID == 0)
+            {
+                CommonDataService.AddEmployee(data);
+            }
+            else
+            {
+                CommonDataService.UpdateEmployee(data);
+            }
+
+            Session[EMPLOYEE_SAVE] = new PaginationSearchInput()
+            {
+                Page = 1,
+                PageSize = PAGE_SIZE,
+                SearchValue = data.Email
+            };
+            return RedirectToAction("Index");
 
         }
-
         /// <summary>
-        /// 
+        /// Giao diện xoá nhân viên
         /// </summary>
         /// <returns></returns>
-        public ActionResult Delete(int id)
+        public ActionResult Delete(int id = 0)
         {
+            //int employeeId = Convert.ToInt32(id);
             if (id == 0)
                 return RedirectToAction("Index");
             if (Request.HttpMethod == "GET")

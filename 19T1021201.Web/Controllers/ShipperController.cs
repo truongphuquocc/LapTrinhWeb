@@ -9,6 +9,7 @@ using System.Web.Mvc;
 
 namespace _19T1021201.Web.Controllers
 {
+    [Authorize]
     public class ShipperController : Controller
     {
         private const int PAGE_SIZE = 8;

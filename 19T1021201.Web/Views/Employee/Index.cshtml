@@ -8,7 +8,10 @@
 
         <form id="formSearch" action="~/Employee/Search">
             <div class="input-group">
-                <input type="text" class="form-control" name="SearchValue" placeholder="Search" value="@ViewBag.SearchValue">
+                <input type="hidden" name="PageSize" value="@Model.PageSize" />
+                <input type="text" name="searchValue"
+                       class="form-control"
+                       placeholder="Nhập tên hoặc email nhân viên cần tìm" value="@Model.SearchValue" autofocus>
                 <div class="input-group-btn">
                     <button class="btn btn-success" type="submit">
                         <i class="glyphicon glyphicon-search"></i>

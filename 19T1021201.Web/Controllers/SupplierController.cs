@@ -12,6 +12,7 @@ namespace _19T1021201.Web.Controllers
     /// <summary>
     /// 
     /// </summary>
+    [Authorize]
     public class SupplierController : Controller
     {
 
