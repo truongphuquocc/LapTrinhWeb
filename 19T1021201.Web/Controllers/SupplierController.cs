@@ -133,7 +133,12 @@ namespace _19T1021201.Web.Controllers
                 {
                     CommonDataService.UpdateSupplier(data);
                 }
-
+                Session[SUPPLIER_SEARCH] = new PaginationSearchInput()
+                {
+                    Page = 1,
+                    PageSize = PAGE_SIZE,
+                    SearchValue = data.SupplierName
+                };
                 return RedirectToAction("Index");
             }
             catch(Exception ex)

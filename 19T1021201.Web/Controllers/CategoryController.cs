@@ -15,8 +15,8 @@ namespace _19T1021201.Web.Controllers
     [Authorize]
     public class CategoryController : Controller
     {
-        private const int PAGE_SIZE = 8;
-        private const string CATEGORY_SEARCH = "SearchCategoryCondition";
+        private const int PAGE_SIZE = 5;
+        //private const string CATEGORY_SEARCH = "SearchCategoryCondition";
 
         /// <summary>
         /// 
@@ -25,7 +25,7 @@ namespace _19T1021201.Web.Controllers
         // GET: Category
         public ActionResult Index()
         {
-            PaginationSearchInput condition = Session[CATEGORY_SEARCH] as PaginationSearchInput;
+            PaginationSearchInput condition = Session["CATEGORY_SEARCH"] as PaginationSearchInput;
 
             if (condition == null)
             {
@@ -49,7 +49,7 @@ namespace _19T1021201.Web.Controllers
         {
             int rowCount = 0;
             var data = CommonDataService.ListOfCategorys(condition.Page, condition.PageSize, condition.SearchValue, out rowCount);
-            var reault = new CategorySearchOutput()
+            var result = new CategorySearchOutput()
             {
                 Page = condition.Page,
                 PageSize = condition.PageSize,
@@ -57,11 +57,11 @@ namespace _19T1021201.Web.Controllers
                 RowCount = rowCount,
                 Data = data
             };
-            Session[CATEGORY_SEARCH] = condition;
+            Session["CATEGORY_SEARCH"] = condition;
 
 
 
-            return View(reault);
+            return View(result);
         }
 
         /// <summary>
@@ -79,6 +79,7 @@ namespace _19T1021201.Web.Controllers
         }
 
         /// <summary>
+        /// 
         /// 
         /// </summary>
         /// <returns></returns>
@@ -104,36 +105,36 @@ namespace _19T1021201.Web.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Save(Category data)
         {
-            try
+
+            if (string.IsNullOrWhiteSpace(data.CategoryName))
+                ModelState.AddModelError("CategoryName", "Tên loại hàng không được để trống");
+
+            if (string.IsNullOrWhiteSpace(data.Description))
+                ModelState.AddModelError("Description", "Tên loại hàng không được để trống");
+
+
+            if (!ModelState.IsValid)
             {
-                if (string.IsNullOrWhiteSpace(data.CategoryName))
-                    ModelState.AddModelError("CategoryName", "Tên loại hàng không được để trống");
-
-                if (string.IsNullOrWhiteSpace(data.Description))
-                    ModelState.AddModelError("Description", "Tên loại hàng không được để trống");
-
-
-                if (!ModelState.IsValid)
-                {
-                    ViewBag.Title = data.CategoryID == 0 ? "Bổ sung loại hàng" : "Cập nhật loại hàng";
-                    return View("Edit", data);
-                }
-
-                if (data.CategoryID == 0)
-                {
-                    CommonDataService.AddCategory(data);
-                }
-                else
-                {
-                    CommonDataService.UpdateCategory(data);
-                }
-
-                return RedirectToAction("Index");
+                ViewBag.Title = data.CategoryID == 0 ? "Bổ sung loại hàng" : "Cập nhật loại hàng";
+                return View("Edit", data);
             }
-            catch(Exception ex)
+
+            if (data.CategoryID == 0)
             {
-                return Content("Có lỗi xãy ra. Vui lòng thử lại sau!");
+                CommonDataService.AddCategory(data);
             }
+            else
+            {
+                CommonDataService.UpdateCategory(data);
+            }
+            Session["CATEGORY_SEARCH"] = new PaginationSearchInput()
+            {
+                Page = 1,
+                PageSize = PAGE_SIZE,
+                SearchValue = data.CategoryName
+            };
+
+            return RedirectToAction("Index");
         }
 
         /// <summary>
@@ -144,10 +145,10 @@ namespace _19T1021201.Web.Controllers
         {
             if (id == 0)
                 return RedirectToAction("Index");
-    
+
             if (Request.HttpMethod == "GET")
             {
-                
+
                 var data = CommonDataService.GetCategory(id);
                 if (data == null)
                     return RedirectToAction("Index");

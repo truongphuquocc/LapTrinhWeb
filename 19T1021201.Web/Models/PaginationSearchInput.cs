@@ -26,4 +26,11 @@ namespace _19T1021201.Web.Models
         public string SearchValue { get; set; }
     }
 
+    public class PaginationSearchInputProduct : PaginationSearchInput
+    {
+        public int SupplierID { get; set; }
+
+        public int CategoryID { get; set; }
+    }
+
 }

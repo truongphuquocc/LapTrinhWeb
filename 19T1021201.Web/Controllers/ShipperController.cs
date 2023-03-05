@@ -123,7 +123,12 @@ namespace _19T1021201.Web.Controllers
                 {
                     CommonDataService.UpdateShipper(data);
                 }
-
+                Session[SHIPPER_SEARCH] = new PaginationSearchInput()
+                {
+                    Page = 1,
+                    PageSize = PAGE_SIZE,
+                    SearchValue = data.ShipperName
+                };
                 return RedirectToAction("Index");
             }
             catch (Exception ex)

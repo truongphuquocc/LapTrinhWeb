@@ -30,7 +30,7 @@ namespace _19T1021201.DataLayers.SQLServer
             using (SqlConnection connection = OpenConnection())
             {
                 SqlCommand cmd = connection.CreateCommand();
-                cmd.CommandText = @"SELECT EmployeeID, FirstName, LastName, Email, Photo
+                cmd.CommandText = @"SELECT EmployeeID, FirstName, LastName, Email, Photo, Password
                                     FROM Employees
                                     WHERE Email = @Email AND Password = @Password";
                 cmd.CommandType = System.Data.CommandType.Text;
@@ -47,7 +47,7 @@ namespace _19T1021201.DataLayers.SQLServer
                             UserName = Convert.ToString(dbReader["Email"]),
                             FullName = $"{dbReader["FirstName"]} {dbReader["LastName"]}",
                             Email = Convert.ToString(dbReader["Email"]),
-                            Password = "",
+                            Password = Convert.ToString(dbReader["Password"]),
                             RoleNames = "",
                             Photo = Convert.ToString(dbReader["Photo"])
                         };
@@ -76,7 +76,7 @@ namespace _19T1021201.DataLayers.SQLServer
                 SqlCommand cmd = new SqlCommand();
                 cmd.CommandText = @"Update Employees
                                     Set Password = @NewPassword
-                                    WHERE Email = @userName AND Password = @OldPassword";
+                                    WHERE Email = @Email AND Password = @OldPassword";
                 cmd.CommandType = CommandType.Text;
                 cmd.Connection = cn;
 

@@ -129,6 +129,12 @@ namespace _19T1021201.Web.Controllers
                 {
                     CommonDataService.UpdateCustomer(data);
                 }
+                Session[CUSTOMER_SEARCH] = new PaginationSearchInput()
+                {
+                    Page = 1,
+                    PageSize = PAGE_SIZE,
+                    SearchValue = data.CustomerName
+                };
 
                 return RedirectToAction("Index");
             }

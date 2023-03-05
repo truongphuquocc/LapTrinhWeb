@@ -48,4 +48,11 @@ namespace _19T1021201.Web.Models
             }
         }
     }
+
+    public class BasePaginationResultProduct : PaginationSearchOutput
+    {
+        public int SupplierID { get; set; }
+
+        public int CategoryID { get; set; }
+    }
 }

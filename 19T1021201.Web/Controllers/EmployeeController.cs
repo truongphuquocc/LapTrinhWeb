@@ -151,8 +151,7 @@ namespace _19T1021201.Web.Controllers
             {
                 CommonDataService.UpdateEmployee(data);
             }
-
-            Session[EMPLOYEE_SAVE] = new PaginationSearchInput()
+            Session[EMPLOYEE_SEARCH] = new PaginationSearchInput()
             {
                 Page = 1,
                 PageSize = PAGE_SIZE,

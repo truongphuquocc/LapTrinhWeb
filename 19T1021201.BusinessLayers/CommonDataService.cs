@@ -64,7 +64,8 @@ namespace _19T1021201.BusinessLayers
         /// <param name="rowCount">Tổng số khách hàng sau khi xử lý tìm kiếm</param>
         /// <returns>Danh sách khách hàng sau khi tìm kiếm</returns>
         /// 
-        public static List<Category> ListOfCategorys() => categoryDB.List().ToList();
+    
+        
         public static List<Category> ListOfCategorys(int page
                                                     , int pageSize
                                                     , string searchValue
@@ -73,6 +74,12 @@ namespace _19T1021201.BusinessLayers
             rowCount = categoryDB.Count(searchValue);
             return categoryDB.List(page, pageSize, searchValue).ToList();
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public static List<Category> ListOfCategorys() => categoryDB.List().ToList();
         /// <summary>
         /// 
         /// </summary>
