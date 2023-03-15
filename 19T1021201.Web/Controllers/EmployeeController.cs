@@ -136,7 +136,7 @@ namespace _19T1021201.Web.Controllers
 
             if (UploadPhoto != null)
             {
-                string path = Server.MapPath("~/Photos"); //mappath: lấy đường dẫn vật lí
+                string path = Server.MapPath("~/Images"); //mappath: lấy đường dẫn vật lí
                 string fileName = $"{DateTime.Now.Ticks}_{UploadPhoto.FileName}";
                 string filePath = System.IO.Path.Combine(path, fileName);//cộng chuỗi
                 UploadPhoto.SaveAs(filePath);

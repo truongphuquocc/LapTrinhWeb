@@ -83,6 +83,9 @@ D:\New Volume (E)\2022-2023.HK2\Lap Trinh Web\19T1021201\19T1021201.Web\bin\rosl
 D:\New Volume (E)\2022-2023.HK2\Lap Trinh Web\19T1021201\19T1021201.Web\bin\roslyn\vbc.rsp
 D:\New Volume (E)\2022-2023.HK2\Lap Trinh Web\19T1021201\19T1021201.Web\bin\roslyn\VBCSCompiler.exe
 D:\New Volume (E)\2022-2023.HK2\Lap Trinh Web\19T1021201\19T1021201.Web\bin\roslyn\VBCSCompiler.exe.config
+D:\New Volume (E)\2022-2023.HK2\Lap Trinh Web\19T1021201\19T1021201.Web\bin\19T1021201.BusinessLayers.dll
+D:\New Volume (E)\2022-2023.HK2\Lap Trinh Web\19T1021201\19T1021201.Web\bin\19T1021201.DataLayers.dll
+D:\New Volume (E)\2022-2023.HK2\Lap Trinh Web\19T1021201\19T1021201.Web\bin\19T1021201.DomainModels.dll
 D:\New Volume (E)\2022-2023.HK2\Lap Trinh Web\19T1021201\19T1021201.Web\bin\Antlr3.Runtime.dll
 D:\New Volume (E)\2022-2023.HK2\Lap Trinh Web\19T1021201\19T1021201.Web\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 D:\New Volume (E)\2022-2023.HK2\Lap Trinh Web\19T1021201\19T1021201.Web\bin\Microsoft.Web.Infrastructure.dll
@@ -95,6 +98,9 @@ D:\New Volume (E)\2022-2023.HK2\Lap Trinh Web\19T1021201\19T1021201.Web\bin\Syst
 D:\New Volume (E)\2022-2023.HK2\Lap Trinh Web\19T1021201\19T1021201.Web\bin\System.Web.WebPages.dll
 D:\New Volume (E)\2022-2023.HK2\Lap Trinh Web\19T1021201\19T1021201.Web\bin\System.Web.WebPages.Razor.dll
 D:\New Volume (E)\2022-2023.HK2\Lap Trinh Web\19T1021201\19T1021201.Web\bin\WebGrease.dll
+D:\New Volume (E)\2022-2023.HK2\Lap Trinh Web\19T1021201\19T1021201.Web\bin\19T1021201.BusinessLayers.pdb
+D:\New Volume (E)\2022-2023.HK2\Lap Trinh Web\19T1021201\19T1021201.Web\bin\19T1021201.DataLayers.pdb
+D:\New Volume (E)\2022-2023.HK2\Lap Trinh Web\19T1021201\19T1021201.Web\bin\19T1021201.DomainModels.pdb
 D:\New Volume (E)\2022-2023.HK2\Lap Trinh Web\19T1021201\19T1021201.Web\bin\System.Web.Helpers.xml
 D:\New Volume (E)\2022-2023.HK2\Lap Trinh Web\19T1021201\19T1021201.Web\bin\System.Web.Mvc.xml
 D:\New Volume (E)\2022-2023.HK2\Lap Trinh Web\19T1021201\19T1021201.Web\bin\System.Web.Optimization.xml
@@ -110,9 +116,3 @@ D:\New Volume (E)\2022-2023.HK2\Lap Trinh Web\19T1021201\19T1021201.Web\obj\Debu
 D:\New Volume (E)\2022-2023.HK2\Lap Trinh Web\19T1021201\19T1021201.Web\obj\Debug\19T1021201.Web.csproj.CopyComplete
 D:\New Volume (E)\2022-2023.HK2\Lap Trinh Web\19T1021201\19T1021201.Web\obj\Debug\19T1021201.Web.dll
 D:\New Volume (E)\2022-2023.HK2\Lap Trinh Web\19T1021201\19T1021201.Web\obj\Debug\19T1021201.Web.pdb
-D:\New Volume (E)\2022-2023.HK2\Lap Trinh Web\19T1021201\19T1021201.Web\bin\19T1021201.BusinessLayers.dll
-D:\New Volume (E)\2022-2023.HK2\Lap Trinh Web\19T1021201\19T1021201.Web\bin\19T1021201.DataLayers.dll
-D:\New Volume (E)\2022-2023.HK2\Lap Trinh Web\19T1021201\19T1021201.Web\bin\19T1021201.DomainModels.dll
-D:\New Volume (E)\2022-2023.HK2\Lap Trinh Web\19T1021201\19T1021201.Web\bin\19T1021201.BusinessLayers.pdb
-D:\New Volume (E)\2022-2023.HK2\Lap Trinh Web\19T1021201\19T1021201.Web\bin\19T1021201.DataLayers.pdb
-D:\New Volume (E)\2022-2023.HK2\Lap Trinh Web\19T1021201\19T1021201.Web\bin\19T1021201.DomainModels.pdb

@@ -146,7 +146,7 @@ namespace _19T1021201.Web.Controllers
                 return View("Create", model);
             }
 
-            ProductDataService.AddProduct(model);
+            int productID = ProductDataService.AddProduct(model);
             PaginationSearchInputProduct input = Session["PRODUCT_SEARCH"] as PaginationSearchInputProduct;
             input.SearchValue = model.ProductName;
             input.SupplierID = model.SupplierID;
@@ -154,8 +154,7 @@ namespace _19T1021201.Web.Controllers
             Session["PRODUCT_SEARCH"] = input;
 
             ViewBag.mess = model.ProductName;
-
-            return RedirectToAction("Edit", model.ProductID);
+            return RedirectToAction($"Edit/{productID}");
         }
 
         public ActionResult update(ProductEditModel model, HttpPostedFileBase uploadPhoto)

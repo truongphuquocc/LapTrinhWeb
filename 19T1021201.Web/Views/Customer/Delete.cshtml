@@ -51,7 +51,14 @@
 
             <div class="form-group">
                 <div class="col-sm-offset-2 col-sm-10">
-                    <button type="submit" class="btn btn-danger"> <i class="glyphicon glyphicon-trash"></i> Đồng ý xoá</button>
+                    @if (_19T1021201.BusinessLayers.CommonDataService.InUsedCustomer(Model.CustomerID))
+                    {
+                        <button type="submit" class="btn btn-danger"> <i class="glyphicon glyphicon-trash"></i> Đồng ý xoá</button>
+                    }
+                    else
+                    {
+                        <p class="form-control-static text text-danger">Không thể xoá loại hàng này</p>
+                    }
                     <a href="~/Customer" class="btn btn-warning">Quay lại</a>
                 </div>
 

@@ -55,4 +55,10 @@ namespace _19T1021201.Web.Models
 
         public int CategoryID { get; set; }
     }
+
+    public class PaginationSearchOutputOrder : PaginationSearchOutput
+    {
+        public int Status { get; set; }
+    }
+
 }
